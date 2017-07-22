@@ -13,6 +13,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-slides pager>
+
+    <ion-slide>
+      <h2>{{ post.name }}</h2>
+    </ion-slide>
+
+      <ion-card>
+        <img src="{{ post.image }}"/>
+        <ion-card-content>
+          <ion-card-title>
+             {{ post.user }}
+            </ion-card-title>
+          <p>
+            {{ post.caption }}
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+  </ion-slides>
 
 </ion-content>
