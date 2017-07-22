@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 
 @Component({
   selector: 'page-home',
@@ -14,8 +15,16 @@ export class HomePage {
   searchQuery: string = '';
   items: string[];
 
-  constructor() {
+  constructor(private http: HTTP) {
     this.initializeItems();
+
+    this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=', {}, {})
+      .then(data => {
+        console.log(data)
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }
 
   initializeItems() {
