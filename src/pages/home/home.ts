@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-home',
@@ -8,23 +9,15 @@ import { HTTP } from '@ionic-native/http';
 })
 export class HomePage {
 
-  // constructor(public navCtrl: NavController) {
-
-  // }
-
   searchQuery: string = '';
   items: string[];
 
-  constructor(private http: HTTP) {
+  constructor(public navCtrl: NavController, public http: Http) {
     this.initializeItems();
 
-    this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=', {}, {})
-      .then(data => {
-        console.log(data)
-      })
-      .catch(error => {
-        console.log(error)
-      });
+    this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
+        console.log(data);
+    });
   }
 
   initializeItems() {
