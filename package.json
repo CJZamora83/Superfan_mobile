@@ -25,6 +25,10 @@
         "@ionic-native/splash-screen": "3.12.1",
         "@ionic-native/status-bar": "3.12.1",
         "@ionic/storage": "2.0.1",
+<<<<<<< HEAD
+=======
+        "cordova-browser": "^4.1.0",
+>>>>>>> 178fae7e17436ffafb93e7ed314c1aa3b055b8cb
         "cordova-ios": "^4.4.0",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.5",
@@ -59,6 +63,10 @@
             "ionic-plugin-keyboard": {}
         },
         "platforms": [
+<<<<<<< HEAD
+=======
+            "browser",
+>>>>>>> 178fae7e17436ffafb93e7ed314c1aa3b055b8cb
             "ios"
         ]
     }
