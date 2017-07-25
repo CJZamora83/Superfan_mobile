@@ -10,13 +10,16 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   searchQuery: string = '';
-  items: string[];
+  items: { text: string, system: string }[];
+  allItems: { text: string, system: string }[];
 
   constructor(public navCtrl: NavController, public http: Http) {
     this.initializeItems();
+  }
 
+  initializeItems() {
     this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
-        console.log(data);
+      this.allItems = data;
     });
   }
 
@@ -26,11 +29,13 @@ export class HomePage {
       'Bogota',
       'Dallas'
     ];
+  resetItems() {
+    this.items = this.allItems;
   }
 
   getItems(ev: any) {
     // Reset items back to all of the items
-    this.initializeItems();
+    this.resetItems();
 
     // set val to the value of the searchbar
     let val = ev.target.value;
@@ -38,7 +43,7 @@ export class HomePage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.text.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }
