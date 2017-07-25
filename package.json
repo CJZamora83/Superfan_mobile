@@ -25,14 +25,8 @@
         "@ionic-native/splash-screen": "3.12.1",
         "@ionic-native/status-bar": "3.12.1",
         "@ionic/storage": "2.0.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
         "cordova-android": "^6.2.3",
->>>>>>> 670b951cac308bb8e6564dafada701204593dfb3
         "cordova-browser": "^4.1.0",
->>>>>>> 178fae7e17436ffafb93e7ed314c1aa3b055b8cb
         "cordova-ios": "^4.4.0",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.5",
@@ -67,14 +61,8 @@
             "ionic-plugin-keyboard": {}
         },
         "platforms": [
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
             "android",
->>>>>>> 670b951cac308bb8e6564dafada701204593dfb3
             "browser",
->>>>>>> 178fae7e17436ffafb93e7ed314c1aa3b055b8cb
             "ios"
         ]
     }

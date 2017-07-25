@@ -23,7 +23,8 @@ export class HomePage {
   initializeItems() {
     this.items = [
       'Amsterdam',
-      'Bogota'
+      'Bogota',
+      'Dallas'
     ];
   }
 
