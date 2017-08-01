@@ -9,37 +9,120 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-  searchQuery: string = '';
-  items: { text: string, system: string }[];
-  allItems: { text: string, system: string }[];
+  trending: {
+    systemname: string,
+    username: string,
+    type: string,
+    link: string,
+    createdAt: string,
+    image: string,
+    video: string,
+    caption: string,
+    comments: number,
+    likes: number,
+    views: number
+  }[];
+
+  mostRecent: {
+    systemname: string,
+    username: string,
+    type: string,
+    link: string,
+    createdAt: string,
+    image: string,
+    video: string,
+    caption: string,
+    comments: number,
+    likes: number,
+    views: number
+  }[];
+
+  twitterHome: {
+    systemname: string,
+    username: string,
+    type: string,
+    link: string,
+    createdAt: string,
+    image: string,
+    video: string,
+    caption: string,
+    comments: number,
+    likes: number,
+    views: number
+  }[];
+
+    gramHome: {
+    systemname: string,
+    username: string,
+    type: string,
+    link: string,
+    createdAt: string,
+    image: string,
+    video: string,
+    caption: string,
+    comments: number,
+    likes: number,
+    views: number
+  }[];
+
+    tubeHome: {
+    systemname: string,
+    username: string,
+    type: string,
+    link: string,
+    createdAt: string,
+    image: string,
+    video: string,
+    caption: string,
+    comments: number,
+    likes: number,
+    views: number
+  }[];
+
 
   constructor(public navCtrl: NavController, public http: Http) {
-    this.initializeItems();
+
+    this.getTrending();
+    this.getMostRecent();
+    this.getTwitterHome();
+    this.getGramHome();
+    this.getTubeHome();
   }
 
-  initializeItems() {
-    this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
-      this.allItems = data;
+  getTrending() {
+    this.http.get('http://superfanlove.herokuapp.com/api/trending').map(res => res.json()).subscribe(data => {
+      console.log(data);
+      this.trending = data;
     });
   }
 
-  resetItems() {
-    this.items = this.allItems;
+  getMostRecent() {
+    this.http.get('http://superfanlove.herokuapp.com/api/mostRecent').map(res => res.json()).subscribe(data => {
+      console.log(data);
+      this.mostRecent = data;
+    });
   }
 
-  getItems(ev: any) {
-    // Reset items back to all of the items
-    this.resetItems();
-
-    // set val to the value of the searchbar
-    let val = ev.target.value;
-
-    // if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return (item.text.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
+  getTwitterHome() {
+    this.http.get('http://superfanlove.herokuapp.com/api/twitter/home').map(res => res.json()).subscribe(data => {
+      console.log(data);
+      this.twitterHome = data;
+    });
   }
+
+  getGramHome() {
+    this.http.get('http://superfanlove.herokuapp.com/api/instagram/home').map(res => res.json()).subscribe(data => {
+      console.log(data);
+      this.gramHome = data;
+    });
+  }
+
+  getTubeHome() {
+    this.http.get('http://superfanlove.herokuapp.com/api/youtube/home').map(res => res.json()).subscribe(data => {
+      console.log(data);
+      this.tubeHome = data;
+    });
+  }
+
 
 }

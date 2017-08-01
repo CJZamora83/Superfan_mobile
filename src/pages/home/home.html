@@ -5,21 +5,28 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
 
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item.text }} ( {{ item.system }} )
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <h2>Trending</h2>
+    <ion-row>
+      <ion-col *ngFor="let post of trending"><img src="{{ post.image }}"></ion-col>
+    </ion-row>
+      <h2>Most Recent</h2>
+    <ion-row>
+      <ion-col *ngFor="let post of mostRecent"><img src="{{ post.image }}"></ion-col>
+    </ion-row>
+    <h2>Twitter</h2>
+    <ion-row>
+      <ion-col *ngFor="let post of twitterHome"><img src="{{ post.image }}"></ion-col>
+    </ion-row>
+    <h2>Instagram</h2>
+    <ion-row>
+      <ion-col *ngFor="let post of gramHome"><img src="{{ post.image }}"></ion-col>
+    </ion-row>
+    <h2>YouTube</h2>
+    <ion-row>
+      <ion-col *ngFor="let post of tubeHome"><img src="{{ post.image }}"></ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
