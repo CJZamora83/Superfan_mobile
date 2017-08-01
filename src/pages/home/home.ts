@@ -9,16 +9,14 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-
   constructor(public navCtrl: NavController, public http: Http) {
+
     this.initializeItems();
   }
 
-  getTrending() {
+  initializeItems() {
     this.http.get('http://superfanlove.herokuapp.com/api/trending').map(res => res.json()).subscribe(data => {
-      this.trendingitems = data;
+      this.trending = data;
     });
   }
-
-
 }
