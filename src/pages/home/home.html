@@ -9,7 +9,7 @@
   <ion-grid>
     <h2><ion-icon name="trending-up"></ion-icon> Trending</h2>
     <ion-row>
-      <ion-col *ngFor="let post of trending"><img src="{{ post.image }}"></ion-col>
+      <ion-col *ngFor="let post of mediaService.trending"><img src="{{ post.image }}"></ion-col>
     </ion-row>
       <h2><ion-icon ios="ios-flash" md="md-flash"></ion-icon> Most Recent</h2>
     <ion-row>
