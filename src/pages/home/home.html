@@ -13,7 +13,7 @@
     </ion-row>
       <h2><ion-icon ios="ios-flash" md="md-flash"></ion-icon> Most Recent</h2>
     <ion-row>
-      <ion-col *ngFor="let post of mostRecent"><img src="{{ post.image }}"></ion-col>
+      <ion-col *ngFor="let post of mediaService.mostRecent"><img src="{{ post.image }}"></ion-col>
     </ion-row>
     <h2><ion-icon name="logo-twitter"></ion-icon> Twitter</h2>
     <ion-row>
