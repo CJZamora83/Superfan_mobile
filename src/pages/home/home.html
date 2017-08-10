@@ -17,7 +17,7 @@
     </ion-row>
     <h2><ion-icon name="logo-twitter"></ion-icon> Twitter</h2>
     <ion-row>
-      <ion-col *ngFor="let post of twitterHome" class="tweet"><h5>{{ post.username }}</h5><h6>{{ post.text }}</h6></ion-col>
+      <ion-col *ngFor="let post of mediaService.twitterHome" class="tweet"><h5>{{ post.username }}</h5><h6>{{ post.text }}</h6></ion-col>
     </ion-row>
     <h2><ion-icon name="logo-instagram"></ion-icon> Instagram</h2>
     <ion-row>
