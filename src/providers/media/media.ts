@@ -53,11 +53,26 @@ export class Media {
     views: number
     }[];
 
+    gramHome: {
+    systemname: string,
+    username: string,
+    type: string,
+    link: string,
+    createdAt: string,
+    image: string,
+    video: string,
+    caption: string,
+    comments: number,
+    likes: number,
+    views: number
+    }[];
+
   constructor(public http: Http) {
 
     this.getTrending();
     this.getMostRecent();
     this.getTwitterHome();
+    this.getGramHome();
 
     }
 
@@ -79,6 +94,13 @@ export class Media {
     this.http.get('http://superfanlove.herokuapp.com/api/twitter/home').map(res => res.json()).subscribe(data => {
       console.log(data);
       this.twitterHome = data;
+    });
+  }
+
+  getGramHome() {
+    this.http.get('http://superfanlove.herokuapp.com/api/instagram/home').map(res => res.json()).subscribe(data => {
+      console.log(data);
+      this.gramHome = data;
     });
   }
 
