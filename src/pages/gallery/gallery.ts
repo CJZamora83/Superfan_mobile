@@ -1,24 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the GalleryPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { NavController } from 'ionic-angular';
+import { Media } from '../../providers/media/media';
+import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'page-gallery',
-  templateUrl: 'gallery.html',
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class GalleryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public mediaService: Media) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GalleryPage');
   }
 
 }
+

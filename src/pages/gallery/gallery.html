@@ -1,9 +1,7 @@
 <!--
-  Generated template for the GalleryPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+  https://www.youtube.com/watch?v=T5iGAAypGBA
 -->
+
 <ion-header>
 
   <ion-navbar>
@@ -17,22 +15,19 @@
 
   <ion-slides pager>
 
-    <ion-slide>
-      <h2>{{ post.name }}</h2>
-    </ion-slide>
+    <ion-slide *ngFor="let post of mediaService.trending">
 
       <ion-card>
-        <img src="../../assets/img/nin-live.png"/>
+        <img src="{{ post.image }}"/>
         <ion-card-content>
           <ion-card-title>
-            Nine Inch Nails Live
+            {{ post.username }}
             </ion-card-title>
-          <p>
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience.
-          </p>
+          <p>{{ post.caption }}</p>
         </ion-card-content>
       </ion-card>
+
+    </ion-slide>
 
   </ion-slides>
 
