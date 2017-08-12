@@ -11,11 +11,83 @@
 </ion-header>
 
 
-<ion-content>
-
-  <ion-slides pager>
+<ion-content padding>
+<h2>{{ data }}</h2>
+  <ion-slides pager *ngIf="data === 'trending'">
 
     <ion-slide *ngFor="let post of mediaService.trending">
+
+      <ion-card>
+        <img src="{{ post.image }}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{ post.username }}
+            </ion-card-title>
+          <p>{{ post.caption }}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides pager *ngIf="data === 'mostRecent'">
+
+    <ion-slide *ngFor="let post of mediaService.mostRecent">
+
+      <ion-card>
+        <img src="{{ post.image }}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{ post.username }}
+            </ion-card-title>
+          <p>{{ post.caption }}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides pager *ngIf="data === 'twitterHome'">
+
+
+    <ion-slide *ngFor="let post of mediaService.twitterHome">
+
+      <ion-card>
+        <img src="{{ post.image }}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{ post.username }}
+            </ion-card-title>
+          <p>{{ post.text}}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides pager *ngIf="data === 'gramHome'">
+
+    <ion-slide *ngFor="let post of mediaService.gramHome">
+
+      <ion-card>
+        <img src="{{ post.image }}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{ post.username }}
+            </ion-card-title>
+          <p>{{ post.caption }}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides pager *ngIf="data === 'tubeHome'">
+
+
+    <ion-slide *ngFor="let post of mediaService.tubeHome">
 
       <ion-card>
         <img src="{{ post.image }}"/>

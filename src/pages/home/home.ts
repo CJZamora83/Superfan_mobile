@@ -10,18 +10,19 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
+  public data;
+
   constructor(public navCtrl: NavController, public mediaService: Media) {
 
   }
 
-  launchGallery(){
+  launchGallery(string){
 
-    let data = {
-      title: "Test Gallery Nav",
-      comment: "Dancing with myself"
-    };
+    this.data = string;
 
-    this.navCtrl.push(GalleryPage, data);
+    this.navCtrl.push(GalleryPage, {
+      data: this.data
+    });
   }
 
 }

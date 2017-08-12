@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Media } from '../../providers/media/media';
+
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-gallery',
+  templateUrl: 'gallery.html'
 })
 export class GalleryPage {
 
-  constructor(public navCtrl: NavController, public mediaService: Media) {
+  data: string = '';
+
+  constructor(public navCtrl: NavController, public mediaService: Media, public navParams: NavParams) {
+
+    this.data = navParams.get("data");
+    console.log(this.data);
 
   }
 

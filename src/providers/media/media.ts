@@ -12,73 +12,73 @@ import 'rxjs/add/operator/map';
 export class Media {
 
     trending: {
-    systemname: string,
-    username: string,
-    type: string,
-    link: string,
-    createdAt: string,
-    image: string,
-    video: string,
-    caption: string,
-    comments: number,
-    likes: number,
-    views: number
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
     }[];
 
     mostRecent: {
-    systemname: string,
-    username: string,
-    type: string,
-    link: string,
-    createdAt: string,
-    image: string,
-    video: string,
-    caption: string,
-    comments: number,
-    likes: number,
-    views: number
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
     }[];
 
     twitterHome: {
-    systemname: string,
-    username: string,
-    type: string,
-    link: string,
-    createdAt: string,
-    image: string,
-    video: string,
-    caption: string,
-    comments: number,
-    likes: number,
-    views: number
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
     }[];
 
     gramHome: {
-    systemname: string,
-    username: string,
-    type: string,
-    link: string,
-    createdAt: string,
-    image: string,
-    video: string,
-    caption: string,
-    comments: number,
-    likes: number,
-    views: number
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
     }[];
 
     tubeHome: {
-    systemname: string,
-    username: string,
-    type: string,
-    link: string,
-    createdAt: string,
-    image: string,
-    video: string,
-    caption: string,
-    comments: number,
-    likes: number,
-    views: number
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
     }[];
 
 
