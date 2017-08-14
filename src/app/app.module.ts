@@ -8,6 +8,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { FeedPage } from '../pages/feed/feed';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingsPage,
     FeedPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    GalleryPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingsPage,
     FeedPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    GalleryPage
   ],
   providers: [
     StatusBar,
