@@ -7,12 +7,27 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <h3>Choose your favorite celebrities</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label>Add Celebrities</ion-label>
+      <ion-select multiple="true" cancelText="Cancel" okText="Save">
+        <ion-option value="olives">Black Olives</ion-option>
+        <ion-option value="mushrooms">Mushrooms</ion-option>
+        <ion-option value="onions">Onions</ion-option>
+        <ion-option value="pepperoni">Pepperoni</ion-option>
+        <ion-option value="sausage">Sausage</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+<!--   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item.text }}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 
 </ion-content>
