@@ -12,6 +12,7 @@ export class SettingsPage {
   searchQuery: string = '';
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
+  favorites : any [];
 
   constructor(public navCtrl: NavController, public http: Http) {
     this.initializeItems();
@@ -40,6 +41,13 @@ export class SettingsPage {
         return (item.text.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
-  }
 
+//  addToFaves() {
+//    for (var _i = 0; _i < celebsList.length; _i++) {
+//      if (document.getElementById('{{ item.text }}').checked) {
+//        favorites.push(document.getElementById(celeb.value));
+//        };
+//    };
+//  }
+  }
 }

@@ -8,8 +8,8 @@
 
 <ion-content padding>
 
-  <h3>Choose your favorite celebrities</h3>
-  <ion-list>
+  <h3 text-center>Search your favorite celebrities</h3>
+<!--   <ion-list>
     <ion-item>
       <ion-label>Add Celebrities</ion-label>
       <ion-select multiple="true" cancelText="Cancel" okText="Save">
@@ -20,14 +20,20 @@
         <ion-option value="sausage">Sausage</ion-option>
       </ion-select>
     </ion-item>
+  </ion-list> -->
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list id="celebsList">
+    <ion-item *ngFor="let item of items">
+      <ion-label>{{ item.text }}</ion-label>
+      <!-- Should value be {{ item.text }} ?-->
+      <ion-checkbox id='celeb' value='' color="success"></ion-checkbox>
+    </ion-item>
   </ion-list>
 
-<!--   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item.text }}
-    </ion-item>
-  </ion-list> -->
+  <button ion-button block>Save</button>
+  <button ion-button block color="danger">Clear</button>
 
 
 </ion-content>
+
