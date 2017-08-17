@@ -44,8 +44,8 @@ export class SettingsPage {
 
 //  addToFaves() {
 //    for (var _i = 0; _i < celebsList.length; _i++) {
-//      if (document.getElementById('{{ item.text }}').checked) {
-//        favorites.push(document.getElementById(celeb.value));
+//      if (document.getElementById('celeb').checked) {
+//        favorites.push(document.getElementById(celeb).value);
 //        };
 //    };
 //  }
