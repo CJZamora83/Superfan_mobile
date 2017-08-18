@@ -12,10 +12,11 @@ export class SettingsPage {
   searchQuery: string = '';
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
-  favorites : any [];
+  favorites : { text: string, system: string }[];
 
   constructor(public navCtrl: NavController, public http: Http) {
     this.initializeItems();
+    this.favorites = [];
   }
 
   initializeItems() {
@@ -31,6 +32,7 @@ export class SettingsPage {
   getItems(ev: any) {
     // Reset items back to all of the items
     this.resetItems();
+    console.log(this.favorites)
 
     // set val to the value of the searchbar
     let val = ev.target.value;
@@ -43,13 +45,12 @@ export class SettingsPage {
     } else {
       this.items = [];
     }
+  }
 
-//  addToFaves() {
-//    for (var _i = 0; _i < celebsList.length; _i++) {
-//      if (document.getElementById('celeb').checked) {
-//        favorites.push(document.getElementById(celeb).value);
-//        };
-//    };
-//  }
+  addToFaves(val) {
+    console.log(val)
+    console.log(this.favorites)
+    this.favorites.push(val);
+    console.log(val);
   }
 }
