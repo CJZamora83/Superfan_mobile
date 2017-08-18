@@ -48,9 +48,8 @@ export class SettingsPage {
   }
 
   addToFaves(val) {
+    this.favorites.push(val);
     console.log(val)
     console.log(this.favorites)
-    this.favorites.push(val);
-    console.log(val);
   }
 }
