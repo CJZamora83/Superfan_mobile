@@ -46,7 +46,7 @@ export class SettingsPage {
     }
   };
 
-  addToFaves(val) {
+  toggleFaves(val) {
     if (this.favorites.indexOf(val) >= 0) {
       this.favorites.splice(this.favorites.indexOf(val), 1);
     } else {
