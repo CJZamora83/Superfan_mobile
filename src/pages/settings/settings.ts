@@ -17,22 +17,21 @@ export class SettingsPage {
   constructor(public navCtrl: NavController, public http: Http) {
     this.initializeItems();
     this.favorites = [];
-  }
+  };
 
   initializeItems() {
     this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
       this.allItems = data;
     });
-  }
+  };
 
   resetItems() {
     this.items = this.allItems;
-  }
+  };
 
   getItems(ev: any) {
     // Reset items back to all of the items
     this.resetItems();
-    console.log(this.favorites)
 
     // set val to the value of the searchbar
     let val = ev.target.value;
@@ -45,11 +44,15 @@ export class SettingsPage {
     } else {
       this.items = [];
     }
-  }
+  };
 
   addToFaves(val) {
-    this.favorites.push(val);
-    console.log(val)
-    console.log(this.favorites)
-  }
+    if (this.favorites.indexOf(val) >= 0) {
+      this.favorites.splice(this.favorites.indexOf(val), 1);
+    } else {
+      this.favorites.push(val);
+    }
+
+    console.log(this.favorites);
+  };
 }
