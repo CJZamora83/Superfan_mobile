@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { FeedPage } from '../feed/feed';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -55,4 +56,14 @@ export class SettingsPage {
 
     console.log(this.favorites);
   };
+
+  launchFeed(favorites) {
+
+    this.navCtrl.push(FeedPage, favorites);
+  }
+
+  clearFeed(favorites) {
+
+    return this.favorites = [];
+  }
 }
