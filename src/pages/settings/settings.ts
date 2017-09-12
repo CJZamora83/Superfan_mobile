@@ -53,17 +53,15 @@ export class SettingsPage {
     } else {
       this.favorites.push(val);
     }
-
-    console.log(this.favorites);
   };
 
   launchFeed(favorites) {
-
-    this.navCtrl.push(FeedPage, favorites);
-  }
+    this.navCtrl.push(FeedPage, {
+      favorites: this.favorites
+    });
+  };
 
   clearFeed(favorites) {
-
     return this.favorites = [];
-  }
+  };
 }
