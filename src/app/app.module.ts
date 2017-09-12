@@ -13,6 +13,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Media } from '../providers/media/media';
+import { FeedProvider } from '../providers/feed/feed';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { Media } from '../providers/media/media';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Media
+    Media,
+    FeedProvider
   ]
 })
 export class AppModule {}

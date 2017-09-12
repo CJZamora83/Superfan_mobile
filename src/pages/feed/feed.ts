@@ -15,16 +15,21 @@ export class FeedPage {
     this.getFeed(0)
   }
 
-    favorites: string[];
+    favorites: any[];
     celebList: string;
 
 
   getFeed(skip) {
 
-    this.celebList = this.favorites.join(';');
-    this.http.get('http://superfanlove.herokuapp.com/api/mobile-search?search=' + this.celebList + '&skip=' + skip).map(res => res.json()).subscribe(data => {
+    this.favorites.join(';');
+    this.http.get('http://superfanlove.herokuapp.com/api/mobile-search?search=' this.favorites.join + '&skip=' + skip).map(res => res.json()).subscribe(data => {
       console.log(data);
     });
   }
 
 }
+
+
+//set up Feed provider
+// set up function to launch and clear feed favorites
+// set up function to remove individual celebritites from faves array
