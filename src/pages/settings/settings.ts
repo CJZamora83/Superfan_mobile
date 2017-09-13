@@ -44,8 +44,4 @@ export class SettingsPage {
       this.items = [];
     }
   };
-
-  toggleFaves(val) {
-    this.feedService.toggleFavorite(val);
-  };
 }
