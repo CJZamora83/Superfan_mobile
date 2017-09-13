@@ -34,8 +34,3 @@ export class FeedPage {
   }
 
 }
-
-
-//set up Feed provider
-// set up function to launch and clear feed favorites
-// set up function to remove individual celebritites from faves array

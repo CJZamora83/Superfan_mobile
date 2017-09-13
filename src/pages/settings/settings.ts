@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FeedPage } from '../feed/feed';
 import { FeedProvider } from '../../providers/feed/feed';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -14,11 +13,9 @@ export class SettingsPage {
   searchQuery: string = '';
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
-  favorites : { text: string, system: string }[];
 
   constructor(public navCtrl: NavController, public http: Http, public feedService: FeedProvider) {
     this.initializeItems();
-    this.favorites = [];
   };
 
   initializeItems() {
@@ -49,22 +46,6 @@ export class SettingsPage {
   };
 
   toggleFaves(val) {
-    if (this.favorites.indexOf(val) >= 0) {
-      this.favorites.splice(this.favorites.indexOf(val), 1);
-    } else {
-      this.favorites.push(val);
-    }
-
     this.feedService.toggleFavorite(val);
-  };
-
-  launchFeed(favorites) {
-    this.navCtrl.push(FeedPage, {
-      favorites: this.favorites
-    });
-  };
-
-  clearFeed(favorites) {
-    return this.favorites = [];
   };
 }
