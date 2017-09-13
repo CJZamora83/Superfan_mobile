@@ -13,7 +13,11 @@ export class HomePage {
   public data;
 
   constructor(public navCtrl: NavController, public mediaService: Media) {
-
+    mediaService.getTrending();
+    mediaService.getMostRecent();
+    mediaService.getTwitterHome();
+    mediaService.getGramHome();
+    mediaService.getTubeHome();
   }
 
   launchGallery(string){

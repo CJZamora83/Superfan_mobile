@@ -82,15 +82,7 @@ export class Media {
     }[];
 
 
-  constructor(public http: Http) {
-
-    this.getTrending();
-    this.getMostRecent();
-    this.getTwitterHome();
-    this.getGramHome();
-    this.getTubeHome();
-
-    }
+  constructor(public http: Http) { }
 
 
   getTrending() {

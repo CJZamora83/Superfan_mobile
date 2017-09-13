@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { FeedProvider } from '../../providers/feed/feed';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -8,20 +8,34 @@ import 'rxjs/add/operator/map';
   templateUrl: 'feed.html'
 })
 export class FeedPage {
-  favorites: string[];
-  celebList: string;
+  n: number;
 
-  constructor(public navCtrl: NavController, private http: Http, public navParams: NavParams) {
-    this.getFeed(0);
-    this.favorites = navParams.get('favorites');
-    console.log(this.favorites);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public feedService: FeedProvider) {
+    this.n = 0;
+    feedService.getFeed(this.n);
+    setTimeout(() => {
+      console.log(feedService.feed);
+      console.log(feedService.feed.length);
+    }, 2500);
+
+    setTimeout(() => {
+      this.getMoreFeed();
+    }, 5000);
+
+    setTimeout(() => {
+      console.log(feedService.feed);
+      console.log(feedService.feed.length);
+    }, 7500);
   }
 
-  getFeed(skip) {
-    this.celebList = this.favorites.join(';');
-    this.http.get('http://superfanlove.herokuapp.com/api/mobile-search?search=' + this.celebList + '&skip=' + skip).map(res => res.json()).subscribe(data => {
-      console.log(data);
-    });
+  getMoreFeed() {
+    this.n += 50;
+    this.feedService.getFeed(this.n);
   }
 
 }
+
+
+//set up Feed provider
+// set up function to launch and clear feed favorites
+// set up function to remove individual celebritites from faves array
