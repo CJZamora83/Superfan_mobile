@@ -27,7 +27,7 @@
     <ion-item *ngFor="let item of items">
       <ion-label>{{ item.text }}</ion-label>
       <!-- Should value be  ?-->
-      <ion-checkbox id='celeb' (ionChange)="feedService.toggleFavorite(item.system)" color="success"></ion-checkbox>
+      <ion-checkbox id='celeb' (ionChange)="feedService.toggleFavorite(item.system)" color="success" [checked]="isChecked"></ion-checkbox>
     </ion-item>
   </ion-list>
 

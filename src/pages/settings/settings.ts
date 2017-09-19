@@ -13,6 +13,7 @@ export class SettingsPage {
   searchQuery: string = '';
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
+  isChecked: boolean = false;
 
   constructor(public navCtrl: NavController, public http: Http, public feedService: FeedProvider) {
     this.initializeItems();
@@ -26,6 +27,13 @@ export class SettingsPage {
 
   resetItems() {
     this.items = this.allItems;
+  };
+
+  clear() {
+    this.isChecked = false;
+    this.feedService.clear();
+
+    console.log(this.isChecked);
   };
 
   getItems(ev: any) {
