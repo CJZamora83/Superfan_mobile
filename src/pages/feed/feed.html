@@ -6,44 +6,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-
-  <div padding>
-    <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="kittens">
-        Kittens
-      </ion-segment-button>
-      <ion-segment-button value="puppies">
-        Puppies
-      </ion-segment-button>
-    </ion-segment>
-  </div>
-
-  <div [ngSwitch]="pet">
-    <ion-list *ngSwitchCase="'puppies'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-puppy-1.jpg">
-        </ion-thumbnail>
-        <h2>Ruby</h2>
-      </ion-item>
-      ...
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'kittens'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-kitten-1.jpg">
-        </ion-thumbnail>
-        <h2>Luna</h2>
-      </ion-item>
-      ...
-    </ion-list>
-  </div>
+<ion-content padding>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-6 *ngFor="let post of feedService.feed"><img src="{{ post.image }}"></ion-col>
+    <ion-row justify-content-center>
+      <ion-col col-4 *ngFor="let post of feedService.feed"><img src="{{ post.image }}"></ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

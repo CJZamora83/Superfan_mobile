@@ -44,4 +44,5 @@ export class SettingsPage {
       this.items = [];
     }
   };
+
 }

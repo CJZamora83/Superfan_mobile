@@ -8,7 +8,36 @@
 
   <h2 text-center>The new social media search engine</h2>
 
+  <div padding>
+    <ion-segment [(ngModel)]="mediaService">
+      <ion-segment-button value="mediaService.trending">
+        Trending
+      </ion-segment-button>
+      <ion-segment-button value="puppies">
+        Recent
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
+  <div [ngSwitch]="mediaService">
+    <ion-list *ngSwitchCase="'let post of mediaService.trending'">
+      <ion-item>
+          <img src="{{ post.image }}">
+        <h2>Ruby</h2>
+      </ion-item>
+      ...
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'kittens'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+      ...
+    </ion-list>
+  </div>
 
   <ion-grid>
     <h2><ion-icon name="trending-up"></ion-icon> Trending</h2>

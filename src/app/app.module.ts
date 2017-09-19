@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { NgSwitchCase } from '@angular/common';
 
 import { SettingsPage } from '../pages/settings/settings';
 import { FeedPage } from '../pages/feed/feed';
