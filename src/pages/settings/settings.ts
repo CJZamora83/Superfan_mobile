@@ -10,10 +10,9 @@ import 'rxjs/add/operator/map';
 })
 export class SettingsPage {
 
-  searchQuery: string = '';
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
-  isChecked: boolean = false;
+  search: string
 
   constructor(public navCtrl: NavController, public http: Http, public feedService: FeedProvider) {
     this.initializeItems();
@@ -30,10 +29,13 @@ export class SettingsPage {
   };
 
   clear() {
-    this.isChecked = false;
     this.feedService.clear();
+  };
 
-    console.log(this.isChecked);
+  addToFavs(celeb) {
+    this.feedService.toggleFavorite(celeb);
+    this.search = '';
+    this.items = [];
   };
 
   getItems(ev: any) {
