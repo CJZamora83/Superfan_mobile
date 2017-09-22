@@ -23,20 +23,22 @@
   </ion-list> -->
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of feedService.favorites">
-      <ion-avatar item-start>
-        <img src="assets/img/facebook-avatar.jpg">
-      </ion-avatar>
-      <h3>{{ item }}</h3>
-    </ion-item>
-  </ion-list>
 
   <ion-list id="celebsList">
     <ion-item *ngFor="let item of items">
       <ion-label>{{ item.text }}</ion-label>
       <!-- Should value be  ?-->
       <ion-checkbox id='celeb' (ionChange)="feedService.toggleFavorite(item.system)" color="success" [(checked)]="isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let item of feedService.favorites">
+      <ion-avatar item-start>
+        <img src="assets/img/facebook-avatar.jpg">
+      </ion-avatar>
+      <h3>{{ item }}</h3>
+      <ion-icon float-right color="danger" ios="ios-trash" md="md-trash"></ion-icon>
     </ion-item>
   </ion-list>
 
