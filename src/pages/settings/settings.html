@@ -32,7 +32,7 @@
   </ion-list>
 
   <ion-list>
-  <ion-item>
+  <ion-item *ngFor="let item of feedService.favorites">
     <ion-avatar item-start>
       <img src="img/facebook-avatar.jpg">
     </ion-avatar>
