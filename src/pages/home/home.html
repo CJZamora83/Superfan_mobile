@@ -42,11 +42,11 @@
   <ion-grid>
     <h2><ion-icon name="trending-up"></ion-icon> Trending</h2>
     <ion-row>
-      <ion-col *ngFor="let post of mediaService.trending"><img src="{{ post.image }}" (click)="launchGallery('trending')"></ion-col>
+      <ion-col *ngFor="let post of mediaService.trending"><img src="{{ post.thumbnail }}" (click)="launchGallery('trending')"></ion-col>
     </ion-row>
       <h2><ion-icon ios="ios-flash" md="md-flash"></ion-icon> Most Recent</h2>
     <ion-row>
-      <ion-col *ngFor="let post of mediaService.mostRecent"><img src="{{ post.image }}" (click)="launchGallery('mostRecent')"></ion-col>
+      <ion-col *ngFor="let post of mediaService.mostRecent"><img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')"></ion-col>
     </ion-row>
     <h2><ion-icon name="logo-twitter"></ion-icon> Twitter</h2>
     <ion-row>
@@ -54,11 +54,11 @@
     </ion-row>
     <h2><ion-icon name="logo-instagram"></ion-icon> Instagram</h2>
     <ion-row>
-      <ion-col *ngFor="let post of mediaService.gramHome"><img src="{{ post.image }}" (click)="launchGallery('gramHome')"></ion-col>
+      <ion-col *ngFor="let post of mediaService.gramHome"><img src="{{ post.thumbnail }}" (click)="launchGallery('gramHome')"></ion-col>
     </ion-row>
     <h2>  <ion-icon name="logo-youtube"></ion-icon> YouTube</h2>
     <ion-row>
-      <ion-col *ngFor="let post of mediaService.tubeHome"><img src="{{ post.image }}" (click)="launchGallery('tubeHome')"></ion-col>
+      <ion-col *ngFor="let post of mediaService.tubeHome"><img src="{{ post.thumbnail }}" (click)="launchGallery('tubeHome')"></ion-col>
     </ion-row>
   </ion-grid>
 

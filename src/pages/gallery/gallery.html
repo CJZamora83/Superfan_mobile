@@ -12,33 +12,22 @@
 
 
 <ion-content padding>
-<h2>{{ data }}</h2>
+<!-- <h2>{{ data }}</h2> -->
   <ion-slides pager *ngIf="data === 'trending'">
 
     <ion-slide *ngFor="let post of mediaService.trending">
-
-<!--       <ion-card>
-        <img src="{{ post.image }}"/>
-        <ion-card-content>
-          <ion-card-title>
-            {{ post.username }}
-            </ion-card-title>
-          <p>{{ post.caption }}</p>
-        </ion-card-content>
-      </ion-card> -->
-
 
       <ion-card>
 
         <ion-item>
           <ion-avatar item-start>
-            <img src="img/facebook-avatar.jpg">
+            <img src="assets/img/facebook-avatar.jpg">
           </ion-avatar>
           <h2>{{ post.username }}</h2>
           <p>November 5, 1955</p>
         </ion-item>
 
-        <img src="{{ post.image }}">
+        <img padding src="{{ post.image }}">
 
         <ion-card-content>
           <p>{{ post.caption }}</p>
@@ -56,11 +45,6 @@
               <ion-icon name="text"></ion-icon>
               <div>4 Comments</div>
             </button>
-          </ion-col>
-          <ion-col center text-center>
-            <ion-note>
-              11h ago
-            </ion-note>
           </ion-col>
         </ion-row>
 
@@ -102,11 +86,6 @@
               <div>4 Comments</div>
             </button>
           </ion-col>
-          <ion-col center text-center>
-            <ion-note>
-              11h ago
-            </ion-note>
-          </ion-col>
         </ion-row>
 
       </ion-card>
@@ -121,7 +100,7 @@
     <ion-slide *ngFor="let post of mediaService.twitterHome">
 
       <ion-card>
-        <img src="{{ post.image }}"/>
+        <img padding src="{{ post.image }}"/>
         <ion-card-content>
           <ion-card-title>
             {{ post.username }}
@@ -139,7 +118,7 @@
     <ion-slide *ngFor="let post of mediaService.gramHome">
 
       <ion-card>
-        <img src="{{ post.image }}"/>
+        <img padding src="{{ post.image }}"/>
         <ion-card-content>
           <ion-card-title>
             {{ post.username }}
