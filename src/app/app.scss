@@ -10,6 +10,8 @@
 //
 // Shared Sass variables, which can be used to adjust Ionic's
 // default Sass variables, belong in "theme/variables.scss".
+
+$thumbnail: 150px;
 //
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
@@ -28,4 +30,9 @@
 
 .tweet > h5 {
   text-align: center;
+}
+
+.thumbnail {
+  height: $thumbnail;
+  width: $thumbnail;
 }
