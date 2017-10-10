@@ -149,4 +149,45 @@
 
   </ion-slides>
 
+  <ion-slides pager *ngIf="data === 'feed'">
+
+    <ion-slide *ngFor="let post of feedService.feed">
+
+      <ion-card>
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/img/facebook-avatar.jpg">
+          </ion-avatar>
+          <h2>{{ post.username }}</h2>
+          <p>November 5, 1955</p>
+        </ion-item>
+
+        <img padding src="{{ post.image }}">
+
+        <ion-card-content>
+          <p>{{ post.caption }}</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>4 Comments</div>
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
 </ion-content>
