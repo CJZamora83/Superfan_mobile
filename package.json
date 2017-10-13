@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "2.0.2",
-    "@ionic/cli-plugin-proxy": "1.4.6",
+    "@ionic/cli-plugin-proxy": "1.4.12",
     "ionic": "3.12.0",
     "typescript": "2.3.4"
   },
