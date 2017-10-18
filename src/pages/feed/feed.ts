@@ -18,24 +18,21 @@ export class FeedPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public feedService: FeedProvider) {
     this.n = 0;
     feedService.getFeed(this.n);
-    setTimeout(() => {
-      console.log(feedService.feed);
-      console.log(feedService.feed.length);
-    }, 2500);
-
-    setTimeout(() => {
-      this.getMoreFeed();
-    }, 5000);
-
-    setTimeout(() => {
-      console.log(feedService.feed);
-      console.log(feedService.feed.length);
-    }, 7500);
   }
 
   getMoreFeed() {
     this.n += 50;
     this.feedService.getFeed(this.n);
+  };
+
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+    this.getMoreFeed();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
   }
 
   launchGallery(string){
@@ -45,6 +42,6 @@ export class FeedPage {
     this.navCtrl.push(GalleryPage, {
       data: this.data
     });
-  }
+  };
 
 }
