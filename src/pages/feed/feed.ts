@@ -11,17 +11,19 @@ import 'rxjs/add/operator/map';
 })
 export class FeedPage {
   n: number;
+  type: string;
   public data;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public feedService: FeedProvider) {
     this.n = 0;
-    feedService.getFeed(this.n)
+    this.type = 'mostRecent';
+    feedService.getFeed(this.n, this.type);
   }
 
   getMoreFeed() {
     this.n += 50;
-    this.feedService.getFeed(this.n)
+    this.feedService.getFeed(this.n, this.type);
   };
 
   doInfinite(infiniteScroll) {

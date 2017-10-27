@@ -6,40 +6,41 @@
 
 <ion-content padding>
 
-  <h2 text-center>The new social media search engine</h2>
-
   <div padding>
-    <ion-segment [(ngModel)]="mediaService">
-      <ion-segment-button value="mediaService.trending">
+    <ion-segment [(ngModel)]="type">
+      <ion-segment-button value="trending">
         Trending
       </ion-segment-button>
-      <ion-segment-button value="puppies">
+      <ion-segment-button value="mostRecent">
         Recent
       </ion-segment-button>
     </ion-segment>
   </div>
-
-  <div [ngSwitch]="mediaService">
-    <ion-list *ngSwitchCase="'let post of mediaService.trending'">
-      <ion-item>
-          <img src="{{ post.image }}">
-        <h2>Ruby</h2>
-      </ion-item>
-      ...
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'kittens'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-kitten-1.jpg">
-        </ion-thumbnail>
-        <h2>Luna</h2>
-      </ion-item>
-      ...
-    </ion-list>
-  </div>
+  <h2 text-center>The new social media search engine</h2>
 
   <ion-grid>
+    <ion-row>
+      <ion-col>
+    <div [ngSwitch]="type">
+      <ion-list *ngSwitchCase="'trending'">
+        <ion-item *ngFor="let post of mediaService.trending">
+            <img src="{{ post.thumbnail }}">
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'mostRecent'">
+        <ion-item *ngFor="let post of mediaService.mostRecent">
+          <ion-thumbnail item-start>
+            <img src="{{ post.thumbnail }}">
+          </ion-thumbnail>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+
+<!--   <ion-grid>
     <h2><ion-icon name="trending-up"></ion-icon> Trending</h2>
     <ion-row>
       <ion-col *ngFor="let post of mediaService.trending"><img src="{{ post.thumbnail }}" (click)="launchGallery('trending')"></ion-col>
@@ -60,7 +61,7 @@
     <ion-row>
       <ion-col *ngFor="let post of mediaService.tubeHome"><img src="{{ post.thumbnail }}" (click)="launchGallery('tubeHome')"></ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
 
 </ion-content>

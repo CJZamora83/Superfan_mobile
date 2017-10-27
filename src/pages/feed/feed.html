@@ -8,6 +8,14 @@
 
 <ion-content padding>
 
+  <ion-segment [(ngModel)]="type">
+    <ion-segment-button value="mostRecent" (click)="getMoreFeed()">
+      Recent
+    </ion-segment-button>
+    <ion-segment-button value="trending" (click)="getMoreFeed()">
+      Trending
+    </ion-segment-button>
+  </ion-segment>
 
   <ion-list [virtualScroll]="feedService.feed">
     <ion-grid fixed>

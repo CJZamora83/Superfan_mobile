@@ -27,15 +27,15 @@ export class FeedProvider {
     views: number
   }[];
 
-  constructor(public http: Http) { 
+  constructor(public http: Http) {
     this.feed = [];
     this.favorites = [];
     this.favdisplay = [];
   };
 
-  getFeed(skip) {
+  getFeed(skip, type) {
     return new Promise(resolve => {
-      this.http.get('http://superfanlove.herokuapp.com/api/mobile-search?search=' + this.favorites.join(';') + '&skip=' + skip)
+      this.http.get('http://superfanlove.herokuapp.com/api/mobile-search?search=' + this.favorites.join(';') + '&skip=' + skip + '&type=' + type)
         .map(res => res.json())
         .subscribe(data => {
           for (this.i = 0;this.i < data.length;this.i++) {
