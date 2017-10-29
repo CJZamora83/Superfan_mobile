@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   public data;
+  public type;
 
   constructor(public navCtrl: NavController, public mediaService: Media) {
     mediaService.getTrending();
@@ -19,6 +20,7 @@ export class HomePage {
     mediaService.getTwitterHome();
     mediaService.getGramHome();
     mediaService.getTubeHome();
+    this.type = "trending";
   }
 
   launchGallery(string){
