@@ -22,7 +22,7 @@
       <ion-row *ngSwitchCase="'trending'">
           <ion-col col-6 class="margin" *ngFor="let post of mediaService.trending">
                 <ion-thumbnail>
-                  <img padding src="{{ post.thumbnail }}">
+                  <img padding src="{{ post.thumbnail }}" (click)="launchGallery('trending')">
                 </ion-thumbnail>
           </ion-col>
       </ion-row>
@@ -31,10 +31,19 @@
       <ion-row *ngSwitchCase="'mostRecent'">
           <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
                 <ion-thumbnail>
-                  <img padding src="{{ post.thumbnail }}">
+                  <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
                 </ion-thumbnail>
           </ion-col>
       </ion-row>
+      <button ion-button outline>Artists</button>
+      <button ion-button outline>Athletes</button>
+      <button ion-button outline>Rising Stars</button>
+      <button ion-button outline>Film</button>
+      <button ion-button outline>Politics</button>
+      <button ion-button outline>Fitness</button>
+
+
+
     </ion-grid>
   </div>
 
