@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FeedProvider } from '../../providers/feed/feed';
+import { FeedPage } from '../feed/feed';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -54,5 +55,9 @@ export class SettingsPage {
       this.items = [];
     }
   };
+
+    viewFeed() {
+    this.navCtrl.push(FeedPage);
+  }
 
 }
