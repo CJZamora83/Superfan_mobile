@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class FeedProvider {
   i: number;
   favorites: string[];
-  favdisplay: object[];
+  favdisplay: any[];
   feed: {
     systemname: string,
     username: string,
