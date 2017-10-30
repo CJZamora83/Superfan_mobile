@@ -13,7 +13,7 @@ export class SettingsPage {
 
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
-  search: string
+  search: string;
 
   constructor(public navCtrl: NavController, public http: Http, public feedService: FeedProvider) {
     this.initializeItems();
@@ -57,7 +57,7 @@ export class SettingsPage {
   };
 
   viewFeed() {
-    this.navCtrl.push(FeedPage);
+    this.navCtrl.parent.select(2);
   }
 
 }
