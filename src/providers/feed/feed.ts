@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class FeedProvider {
   i: number;
   favorites: string[];
-  favdisplay: string[];
+  favdisplay: object[];
   feed: {
     systemname: string,
     username: string,
@@ -48,15 +48,18 @@ export class FeedProvider {
   };
 
   toggleFavorite(obj) {
-    if (this.favorites.indexOf(obj.system) >= 0 && this.favdisplay.indexOf(obj.text) >= 0) {
+    if (this.favorites.indexOf(obj.system) >= 0) {
       this.favorites.splice(this.favorites.indexOf(obj.system), 1);
-      this.favdisplay.splice(this.favdisplay.indexOf(obj.text), 1);
+
+      for (this.i = 0; this.i < this.favdisplay.length;this.i++){
+        if (this.favdisplay[this.i].system === obj.system) {
+          this.favdisplay.splice(this.i, 1);
+        }
+      }
     } else {
       this.favorites.push(obj.system);
-      this.favdisplay.push(obj.text);
+      this.favdisplay.push(obj);
     }
-
-    console.log(this.favorites);
   };
 
   clear() {

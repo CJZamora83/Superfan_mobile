@@ -56,7 +56,7 @@ export class SettingsPage {
     }
   };
 
-    viewFeed() {
+  viewFeed() {
     this.navCtrl.push(FeedPage);
   }
 

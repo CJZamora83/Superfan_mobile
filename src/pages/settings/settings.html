@@ -17,9 +17,9 @@
       <ion-avatar item-start>
         <img src="assets/img/facebook-avatar.jpg">
       </ion-avatar>
-      <h3>{{ item }}</h3>
+      <h3>{{ item.text }}</h3>
       <!-- Advanced: explicity set the icon for each platform -->
-      <ion-icon float-right ios="ios-trash" md="md-trash"></ion-icon>
+      <ion-icon float-right ios="ios-trash" md="md-trash" (click)="feedService.toggleFavorite(item)"></ion-icon>
     </ion-item>
   </ion-list>
 
