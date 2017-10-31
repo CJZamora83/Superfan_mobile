@@ -23,7 +23,10 @@
           <ion-col col-6 *virtualItem="let post" approxItemHeight="50px">
             <ion-img padding *ngIf="post.thumbnail" class="thumbnail" [src]="post.thumbnail" (click)="launchGallery('feed')"></ion-img>
 <!--             <ion-img padding *ngIf="post.image" class="thumbnail" [src]="post.image" (click)="launchGallery('feed')"></ion-img>
- -->            <div *ngIf="post.text" class="tweet" (click)="launchGallery('feed')"></div>
+ -->            <div padding *ngIf="post.text" class="tweet" (click)="launchGallery('feed')">
+                  <h5>{{ post.username }}</h5>
+                  <p>{{ post.text }}</p>
+                </div>
           </ion-col>
         </ion-row>
       </ion-grid>
