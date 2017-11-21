@@ -165,8 +165,12 @@
 
         <img padding src="{{ post.image }}">
 
-        <ion-card-content>
+        <ion-card-content *ngIf="post.caption">
           <p>{{ post.caption }}</p>
+        </ion-card-content>
+
+        <ion-card-content *ngIf="post.retweets">
+          <p>{{ post.text }}</p>
         </ion-card-content>
 
         <ion-row>
