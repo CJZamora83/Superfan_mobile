@@ -70,15 +70,12 @@ export class FeedPage {
   getMoreFeed() {
     this.n += 50;
     this.feedService.getFeed(this.n, this.type);
-    console.log(this.feedService.feed);
   };
 
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
     this.getMoreFeed();
 
     setTimeout(() => {
-      console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
   }

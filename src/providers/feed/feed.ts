@@ -37,7 +37,6 @@ export class FeedProvider {
 
   getFeed(skip, type) {
     return new Promise(resolve => {
-      console.log(this.favorites)
       this.http.get('http://superfanlove.herokuapp.com/api/mobile-search?search=' + this.favorites.join(';') + '&skip=' + skip + '&type=' + type)
         .map(res => res.json())
         .subscribe(data => {
