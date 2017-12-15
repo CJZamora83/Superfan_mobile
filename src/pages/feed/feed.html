@@ -17,27 +17,17 @@
     </ion-segment-button>
   </ion-segment>
   <div padding>
-    <ion-list [virtualScroll]="feedService.feed">
+    <ion-list>
       <ion-grid fixed>
-          <ion-row align-items-stretch approxItemHeight="50px">
-            <ion-col col-6 *virtualItem="let post">
-              <ion-img *ngIf="post.thumbnail" padding class="thumbnail" [src]="post.thumbnail" (click)="launchGallery('feed')"></ion-img>
+          <ion-row *ngFor="let post of feedService.feed">
+            <ion-col col-12>
+              <img *ngIf="post.image" padding src="{{ post.image }}">
               <div *ngIf="post.text" padding class="tweet-feed">
                 <h5>{{ post.username }}</h5>
                 <p>{{ post.text }}</p>
               </div>
             </ion-col>
           </ion-row>
-<!--         <ion-row align-items-stretch>
-            <ion-col col-6 *virtualItem="let post" approxItemHeight="50px">
-              <ion-img padding *ngIf="post.thumbnail" class="thumbnail" [src]="post.thumbnail" (click)="launchGallery('feed')"></ion-img>
-              <ion-img padding *ngIf="post.image" class="thumbnail" [src]="post.image" (click)="launchGallery('feed')"></ion-img>
-              <div padding *ngIf="post.text" class="tweet" (click)="launchGallery('feed')">
-                    <h5>{{ post.username }}</h5>
-                    <p>{{ post.text }}</p>
-                  </div>
-            </ion-col>
-        </ion-row> -->
       </ion-grid>
     </ion-list>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

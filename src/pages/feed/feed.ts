@@ -15,7 +15,6 @@ export class FeedPage {
   type: string;
   public data;
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public feedService: FeedProvider) {
     this.n = 0;
     this.type = 'mostRecent';
@@ -25,6 +24,7 @@ export class FeedPage {
   getMoreFeed() {
     this.n += 50;
     this.feedService.getFeed(this.n, this.type);
+    console.log(this.feedService.feed);
   };
 
   doInfinite(infiniteScroll) {
