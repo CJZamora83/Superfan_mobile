@@ -5,46 +5,64 @@
 </ion-header>
 
 <ion-content padding>
-
-  <div padding>
-    <ion-segment [(ngModel)]="type">
-      <ion-segment-button value="trending" type="primary">
-        Trending
-      </ion-segment-button>
-      <ion-segment-button value="mostRecent" type="primary">
-        Recent
-      </ion-segment-button>
-    </ion-segment>
-  </div>
-
   <div [ngSwitch]="type">
-    <ion-grid>
-      <ion-row *ngSwitchCase="'trending'">
-          <ion-col col-6 class="margin" *ngFor="let post of mediaService.trending">
-                <ion-thumbnail>
-                  <img padding src="{{ post.thumbnail }}" (click)="launchGallery('trending')">
-                </ion-thumbnail>
-          </ion-col>
-      </ion-row>
-
-
-      <ion-row *ngSwitchCase="'mostRecent'">
+    <ion-segment [(ngModel)]="type">
+      <ion-grid>
+        <button ion-button outline (click)="type = 'artists'">Artists</button>
+        <ion-row *ngSwitchCase="'artists'">
           <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
-                <ion-thumbnail>
-                  <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-                </ion-thumbnail>
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
           </ion-col>
-      </ion-row>
-      <button ion-button outline>Artists</button>
-      <button ion-button outline>Athletes</button>
-      <button ion-button outline>Rising Stars</button>
-      <button ion-button outline>Film</button>
-      <button ion-button outline>Politics</button>
-      <button ion-button outline>Fitness</button>
+        </ion-row>
 
+        <button ion-button outline (click)="type = 'athletes'">Athletes</button>
+        <ion-row *ngSwitchCase="'athletes'">
+          <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
 
+        <button ion-button outline (click)="type = 'risingstars'">Rising Stars</button>
+        <ion-row *ngSwitchCase="'risingstars'">
+          <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
 
-    </ion-grid>
+        <button ion-button outline (click)="type = 'film'">Film</button>
+        <ion-row *ngSwitchCase="'film'">
+          <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+
+        <button ion-button outline (click)="type = 'politics'">Politics</button>
+        <ion-row *ngSwitchCase="'politics'">
+          <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+
+        <button ion-button outline (click)="type = 'fitness'">Fitness</button>
+        <ion-row *ngSwitchCase="'fitness'">
+          <ion-col col-6 *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-segment>
   </div>
 
 

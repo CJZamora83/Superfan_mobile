@@ -21,7 +21,7 @@ export class HomePage {
     mediaService.getTwitterHome();
     mediaService.getGramHome();
     mediaService.getTubeHome();
-    this.type = "trending";
+    this.type = "artists";
   }
 
   launchGallery(string){
