@@ -4,6 +4,7 @@ import { FeedProvider } from '../../providers/feed/feed';
 import { Media } from '../../providers/media/media';
 import { GalleryPage } from '../gallery/gallery';
 import { SettingsPage } from '../settings/settings';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -13,12 +14,58 @@ import 'rxjs/add/operator/map';
 export class FeedPage {
   n: number;
   type: string;
+  items: { text: string, system: string }[];
+  allItems: { text: string, system: string }[];
+  search: string;
   public data;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public feedService: FeedProvider) {
+  constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams, public feedService: FeedProvider) {
     this.n = 0;
     this.type = 'mostRecent';
-    feedService.getFeed(this.n, this.type);
+    this.initializeItems();
+  };
+
+  initializeItems() {
+    this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
+      this.allItems = data;
+    });
+  };
+
+  resetItems() {
+    this.items = this.allItems;
+  };
+
+  clear() {
+    this.feedService.clear();
+  };
+
+  addToFavs(celeb) {
+    var that = this;
+    that.feedService.toggleFavorite(celeb);
+    that.search = '';
+    that.items = [];
+    that.feedService.getFeed(that.n, that.type);
+  };
+
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    this.resetItems();
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.text.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    } else {
+      this.items = [];
+    }
+  };
+
+  viewFeed() {
+    this.navCtrl.parent.select(2);
   }
 
   getMoreFeed() {
