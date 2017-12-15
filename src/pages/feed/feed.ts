@@ -40,11 +40,12 @@ export class FeedPage {
   };
 
   addToFavs(celeb) {
-    var that = this;
-    that.feedService.toggleFavorite(celeb);
-    that.search = '';
-    that.items = [];
-    that.feedService.getFeed(that.n, that.type);
+    if (celeb != '') {
+      this.feedService.toggleFavorite(celeb);
+      this.search = '';
+      this.items = [];
+      this.feedService.getFeed(this.n, this.type);
+    }
   };
 
   getItems(ev: any) {
