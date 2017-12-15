@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-import { SettingsPage } from '../settings/settings';
 import { FeedPage } from '../feed/feed';
 import { HomePage } from '../home/home';
 

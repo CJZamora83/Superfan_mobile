@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { NgSwitchCase } from '@angular/common';
 import { NavController } from 'ionic-angular';
 import { Media } from '../../providers/media/media';
 import { GalleryPage } from '../gallery/gallery';
-import { FeedPage } from '../feed/feed';
 import 'rxjs/add/operator/map';
 
 @Component({

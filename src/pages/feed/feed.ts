@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FeedProvider } from '../../providers/feed/feed';
-import { Media } from '../../providers/media/media';
 import { GalleryPage } from '../gallery/gallery';
-import { SettingsPage } from '../settings/settings';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
