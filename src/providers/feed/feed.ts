@@ -24,7 +24,9 @@ export class FeedProvider {
     caption: string,
     comments: number,
     likes: number,
-    views: number
+    views: number,
+    height: number,
+    width: number
   }[];
 
   constructor(public http: Http) {

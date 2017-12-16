@@ -4,19 +4,26 @@
   </ion-navbar>
 </ion-header>
 
+<<<<<<< HEAD
 <ion-content>
 
   <div padding>
+=======
+<ion-content padding>
+  <div [ngSwitch]="type">
+>>>>>>> 5daccca76a69a22e7e858262be9222dffee058b2
     <ion-segment [(ngModel)]="type">
-      <ion-segment-button value="trending" type="primary">
-        Trending
-      </ion-segment-button>
-      <ion-segment-button value="mostRecent" type="primary">
-        Recent
-      </ion-segment-button>
-    </ion-segment>
-  </div>
+      <ion-grid>
+        <button ion-button outline (click)="type = 'artists'">Artists</button>
+        <ion-slides *ngSwitchCase="'artists'">
+          <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-slide>
+        </ion-slides>
 
+<<<<<<< HEAD
   <div [ngSwitch]="type">
     <ion-grid>
       <ion-row *ngSwitchCase="'trending'">
@@ -45,6 +52,54 @@
 
 
     </ion-grid>
+=======
+        <button ion-button outline (click)="type = 'athletes'">Athletes</button>
+        <ion-slides *ngSwitchCase="'athletes'">
+          <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-slide>
+        </ion-slides>
+
+        <button ion-button outline (click)="type = 'risingstars'">Rising Stars</button>
+        <ion-slides *ngSwitchCase="'risingstars'">
+          <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-slide>
+        </ion-slides>
+
+        <button ion-button outline (click)="type = 'film'">Film</button>
+        <ion-slides *ngSwitchCase="'film'">
+          <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-slide>
+        </ion-slides>
+
+        <button ion-button outline (click)="type = 'politics'">Politics</button>
+        <ion-slides *ngSwitchCase="'politics'">
+          <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-slide>
+        </ion-slides>
+
+        <button ion-button outline (click)="type = 'fitness'">Fitness</button>
+        <ion-slides *ngSwitchCase="'fitness'">
+          <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-thumbnail>
+              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
+            </ion-thumbnail>
+          </ion-slide>
+        </ion-slides>
+      </ion-grid>
+    </ion-segment>
+>>>>>>> 5daccca76a69a22e7e858262be9222dffee058b2
   </div>
 
 

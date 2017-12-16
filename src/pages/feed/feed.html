@@ -7,37 +7,46 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar [(ngModel)]="search" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of feedService.favdisplay">
+      <ion-avatar item-start>
+        <img src="assets/img/facebook-avatar.jpg">
+      </ion-avatar>
+      <h3>{{ item.text }}</h3>
+      <!-- Advanced: explicity set the icon for each platform -->
+      <ion-icon float-right ios="ios-trash" md="md-trash" (click)="feedService.toggleFavorite(item)"></ion-icon>
+    </ion-item>
+  </ion-list>
 
-  <ion-segment [(ngModel)]="type">
+  <ion-list id="celebsList">
+    <ion-item *ngFor="let item of items">
+      <ion-label>{{ item.text }}</ion-label>
+       <!-- Should value be  ? -->
+      <ion-checkbox id='celeb' (ionChange)="addToFavs(item)" color="success"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+<!--   <ion-segment [(ngModel)]="type">
     <ion-segment-button value="mostRecent" (click)="getMoreFeed()">
       Recent
     </ion-segment-button>
     <ion-segment-button value="trending" (click)="getMoreFeed()">
       Trending
     </ion-segment-button>
-  </ion-segment>
+  </ion-segment> -->
   <div padding>
-    <ion-list [virtualScroll]="feedService.feed">
+    <ion-list>
       <ion-grid fixed>
-          <ion-row align-items-stretch approxItemHeight="50px">
-            <ion-col col-6 *virtualItem="let post">
-              <ion-img *ngIf="post.thumbnail" padding class="thumbnail" [src]="post.thumbnail" (click)="launchGallery('feed')"></ion-img>
+          <ion-row *ngFor="let post of feedService.feed">
+            <ion-col col-12>
+              <img *ngIf="post.image" padding src="{{ post.image }}">
               <div *ngIf="post.text" padding class="tweet-feed">
                 <h5>{{ post.username }}</h5>
                 <p>{{ post.text }}</p>
               </div>
             </ion-col>
           </ion-row>
-<!--         <ion-row align-items-stretch>
-            <ion-col col-6 *virtualItem="let post" approxItemHeight="50px">
-              <ion-img padding *ngIf="post.thumbnail" class="thumbnail" [src]="post.thumbnail" (click)="launchGallery('feed')"></ion-img>
-              <ion-img padding *ngIf="post.image" class="thumbnail" [src]="post.image" (click)="launchGallery('feed')"></ion-img>
-              <div padding *ngIf="post.text" class="tweet" (click)="launchGallery('feed')">
-                    <h5>{{ post.username }}</h5>
-                    <p>{{ post.text }}</p>
-                  </div>
-            </ion-col>
-        </ion-row> -->
       </ion-grid>
     </ion-list>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

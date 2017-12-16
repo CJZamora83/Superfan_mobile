@@ -87,35 +87,30 @@ export class Media {
 
   getTrending() {
     this.http.get('http://superfanlove.herokuapp.com/api/trending').map(res => res.json()).subscribe(data => {
-      console.log(data);
       this.trending = data;
     });
   }
 
   getMostRecent() {
     this.http.get('http://superfanlove.herokuapp.com/api/mostrecent').map(res => res.json()).subscribe(data => {
-      console.log(data);
       this.mostRecent = data;
     });
   }
 
   getTwitterHome() {
     this.http.get('http://superfanlove.herokuapp.com/api/twitter/home').map(res => res.json()).subscribe(data => {
-      console.log(data);
       this.twitterHome = data;
     });
   }
 
   getGramHome() {
     this.http.get('http://superfanlove.herokuapp.com/api/instagram/home').map(res => res.json()).subscribe(data => {
-      console.log(data);
       this.gramHome = data;
     });
   }
 
   getTubeHome() {
     this.http.get('http://superfanlove.herokuapp.com/api/youtube/home').map(res => res.json()).subscribe(data => {
-      console.log(data);
       this.tubeHome = data;
     });
   }
