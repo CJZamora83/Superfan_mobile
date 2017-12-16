@@ -4,14 +4,8 @@
   </ion-navbar>
 </ion-header>
 
-<<<<<<< HEAD
-<ion-content>
-
-  <div padding>
-=======
 <ion-content padding>
   <div [ngSwitch]="type">
->>>>>>> 5daccca76a69a22e7e858262be9222dffee058b2
     <ion-segment [(ngModel)]="type">
       <ion-grid>
         <button ion-button outline (click)="type = 'artists'">Artists</button>
@@ -23,36 +17,6 @@
           </ion-slide>
         </ion-slides>
 
-<<<<<<< HEAD
-  <div [ngSwitch]="type">
-    <ion-grid>
-      <ion-row *ngSwitchCase="'trending'">
-          <ion-col col-6 class="margin" *ngFor="let post of mediaService.trending">
-                <ion-thumbnail>
-                  <img padding src="{{ post.thumbnail }}" (click)="launchGallery('trending')">
-                </ion-thumbnail>
-          </ion-col>
-      </ion-row>
-
-
-      <ion-row *ngSwitchCase="'mostRecent'">
-          <ion-col col-6 text-center *ngFor="let post of mediaService.mostRecent">
-                <!-- <ion-thumbnail> -->
-                  <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-                <!-- </ion-thumbnail> -->
-          </ion-col>
-      </ion-row>
-      <button ion-button outline>Artists</button>
-      <button ion-button outline>Athletes</button>
-      <button ion-button outline>Rising Stars</button>
-      <button ion-button outline>Film</button>
-      <button ion-button outline>Politics</button>
-      <button ion-button outline>Fitness</button>
-
-
-
-    </ion-grid>
-=======
         <button ion-button outline (click)="type = 'athletes'">Athletes</button>
         <ion-slides *ngSwitchCase="'athletes'">
           <ion-slide *ngFor="let post of mediaService.mostRecent">
@@ -99,7 +63,6 @@
         </ion-slides>
       </ion-grid>
     </ion-segment>
->>>>>>> 5daccca76a69a22e7e858262be9222dffee058b2
   </div>
 
 

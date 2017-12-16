@@ -21,10 +21,10 @@
 
         <ion-item>
           <ion-avatar item-start>
-            <img src="assets/img/facebook-avatar.jpg">
+            <img src="{{ post.thumbnail }}">
           </ion-avatar>
-          <h2>{{ post.username }}</h2>
-          <p> {{ post.createdAt }}</p>
+          <h2>{{ post.systemname }}</h2>
+          <h4>@{{ post.username }}</h4>
         </ion-item>
 
         <img padding src="{{ post.image }}">
@@ -37,13 +37,13 @@
           <ion-col>
             <button ion-button icon-left clear small>
               <ion-icon name="thumbs-up"></ion-icon>
-              <div>12 Likes</div>
+              <div>{{ post.likes }}</div>
             </button>
           </ion-col>
           <ion-col>
             <button ion-button icon-left clear small>
               <ion-icon name="text"></ion-icon>
-              <div>4 Comments</div>
+              <div>{{ post.comments }}</div>
             </button>
           </ion-col>
         </ion-row>
@@ -61,10 +61,10 @@
 
         <ion-item>
           <ion-avatar item-start>
-            <img src="assets/img/facebook-avatar.jpg">
+            <img src="{{ post.thumbnail }}">
           </ion-avatar>
-          <h2>{{ post.username }}</h2>
-          <p>November 5, 1955</p>
+          <h2>{{ post.systemname }}</h2>
+          <h4>@{{ post.username }}</h4>
         </ion-item>
 
         <img padding src="{{ post.image }}">
@@ -77,13 +77,13 @@
           <ion-col>
             <button ion-button icon-left clear small>
               <ion-icon name="thumbs-up"></ion-icon>
-              <div>12 Likes</div>
+              <div>{{ post.likes }}</div>
             </button>
           </ion-col>
           <ion-col>
             <button ion-button icon-left clear small>
               <ion-icon name="text"></ion-icon>
-              <div>4 Comments</div>
+              <div>{{ post.comments }}</div>
             </button>
           </ion-col>
         </ion-row>
@@ -103,7 +103,8 @@
         <img padding src="{{ post.image }}"/>
         <ion-card-content>
           <ion-card-title>
-            {{ post.username }}
+          <h2>{{ post.systemname }}</h2>
+          <h4>@{{ post.handle }}</h4>
             </ion-card-title>
           <p>{{ post.text}}</p>
         </ion-card-content>
@@ -113,7 +114,7 @@
 
   </ion-slides>
 
-  <ion-slides pager *ngIf="data === 'gramHome'">
+<!--   <ion-slides pager *ngIf="data === 'gramHome'">
 
     <ion-slide *ngFor="let post of mediaService.gramHome">
 
@@ -128,9 +129,9 @@
       </ion-card>
 
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
-  <ion-slides pager *ngIf="data === 'tubeHome'">
+<!--   <ion-slides pager *ngIf="data === 'tubeHome'">
 
 
     <ion-slide *ngFor="let post of mediaService.tubeHome">
@@ -147,22 +148,60 @@
 
     </ion-slide>
 
-  </ion-slides>
+  </ion-slides> -->
 
-  <!-- Feed Gallery -->
-
+<!-- ========================================================================================
+  Feed Gallery
+========================================================================================
+ -->
   <ion-slides pager *ngIf="data === 'feed'">
 
     <ion-slide *ngFor="let post of feedService.feed">
 
+<!-- Gram Card -->
       <ion-card>
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{ post.thumbnail }}">
+          </ion-avatar>
+          <h2>{{ post.systemname }}</h2>
+          <h4>@{{ post.username }}</h4>
+        </ion-item>
+
+        <img padding src="{{ post.image }}">
+
+        <ion-card-content>
+          <p>{{ post.caption }}</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>{{ post.likes }}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>{{ post.comments }}</div>
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+<!-- Tweet Card -->
+
+<!--       <ion-card>
 
         <ion-item>
           <ion-avatar item-start>
             <img src="assets/img/facebook-avatar.jpg">
           </ion-avatar>
           <h2>{{ post.username }}</h2>
-          <p>November 5, 1955</p>
+          <h4>@{{ post.handle }}</h4>
         </ion-item>
 
         <img padding src="{{ post.image }}">
@@ -180,18 +219,18 @@
           <ion-col>
             <button ion-button icon-left clear small>
               <ion-icon name="thumbs-up"></ion-icon>
-              <div>12 Likes</div>
+              <div>{{ post.likes }}</div>
             </button>
           </ion-col>
           <ion-col>
             <button ion-button icon-left clear small>
               <ion-icon name="text"></ion-icon>
-              <div>4 Comments</div>
+              <div>{{ post.comments }}</div>
             </button>
           </ion-col>
         </ion-row>
 
-      </ion-card>
+      </ion-card> -->
 
     </ion-slide>
 
