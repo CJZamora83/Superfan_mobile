@@ -4,63 +4,75 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <div [ngSwitch]="type">
     <ion-segment [(ngModel)]="type">
       <ion-grid>
         <button ion-button outline (click)="type = 'artists'">Artists</button>
-        <ion-slides *ngSwitchCase="'artists'">
-          <ion-slide *ngFor="let post of mediaService.mostRecent">
-            <ion-thumbnail>
-              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-            </ion-thumbnail>
-          </ion-slide>
-        </ion-slides>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'artists'" autoplay="5000" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
 
         <button ion-button outline (click)="type = 'athletes'">Athletes</button>
-        <ion-slides *ngSwitchCase="'athletes'">
-          <ion-slide *ngFor="let post of mediaService.mostRecent">
-            <ion-thumbnail>
-              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-            </ion-thumbnail>
-          </ion-slide>
-        </ion-slides>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'athletes'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
 
         <button ion-button outline (click)="type = 'risingstars'">Rising Stars</button>
-        <ion-slides *ngSwitchCase="'risingstars'">
-          <ion-slide *ngFor="let post of mediaService.mostRecent">
-            <ion-thumbnail>
-              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-            </ion-thumbnail>
-          </ion-slide>
-        </ion-slides>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'risingstars'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
 
         <button ion-button outline (click)="type = 'film'">Film</button>
-        <ion-slides *ngSwitchCase="'film'">
-          <ion-slide *ngFor="let post of mediaService.mostRecent">
-            <ion-thumbnail>
-              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-            </ion-thumbnail>
-          </ion-slide>
-        </ion-slides>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'film'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
 
         <button ion-button outline (click)="type = 'politics'">Politics</button>
-        <ion-slides *ngSwitchCase="'politics'">
-          <ion-slide *ngFor="let post of mediaService.mostRecent">
-            <ion-thumbnail>
-              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-            </ion-thumbnail>
-          </ion-slide>
-        </ion-slides>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'politics'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
 
         <button ion-button outline (click)="type = 'fitness'">Fitness</button>
-        <ion-slides *ngSwitchCase="'fitness'">
-          <ion-slide *ngFor="let post of mediaService.mostRecent">
-            <ion-thumbnail>
-              <img padding src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')">
-            </ion-thumbnail>
-          </ion-slide>
-        </ion-slides>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'fitness'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
       </ion-grid>
     </ion-segment>
   </div>
