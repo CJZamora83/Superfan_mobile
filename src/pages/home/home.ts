@@ -13,7 +13,13 @@ export class HomePage {
   @ViewChild(Slides) slides: Slides;
 
   public data;
+  public active;
   public type;
+  public overlayHidden: boolean = true;
+
+  public hideOverlay(event) {
+    if (event.target.className === 'my-overlay') this.overlayHidden = true;
+  }
 
   constructor(public navCtrl: NavController, public mediaService: Media) {
     var that = this;
@@ -23,6 +29,11 @@ export class HomePage {
     mediaService.getGramHome();
     mediaService.getTubeHome();
     that.type = "artists";
+  }
+
+  launchOverlay(obj){
+    this.active = obj;
+    this.overlayHidden = false;
   }
 
   launchGallery(string){

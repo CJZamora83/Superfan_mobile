@@ -13,7 +13,7 @@
           <ion-slides *ngSwitchCase="'artists'" autoplay="5000" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
@@ -24,7 +24,7 @@
           <ion-slides *ngSwitchCase="'athletes'" autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
@@ -35,7 +35,7 @@
           <ion-slides *ngSwitchCase="'risingstars'" autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
@@ -46,7 +46,7 @@
           <ion-slides *ngSwitchCase="'film'" autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
@@ -57,7 +57,7 @@
           <ion-slides *ngSwitchCase="'politics'" autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
@@ -68,7 +68,7 @@
           <ion-slides *ngSwitchCase="'fitness'" autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchGallery('mostRecent')" style="padding:1px;">
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
@@ -77,6 +77,10 @@
     </ion-segment>
   </div>
 
-
+  <div class="my-overlay" padding [hidden]="overlayHidden" (click)="hideOverlay($event)">
+    <ion-thumbnail *ngIf="active">
+      <img src="{{ active.thumbnail }}" style="z-index:5;position:absolute;top:25%;width:100%;left:0px;">
+    </ion-thumbnail>
+  </div>
 
 </ion-content>
