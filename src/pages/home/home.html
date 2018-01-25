@@ -30,6 +30,17 @@
           </ion-slides>
         </div>
 
+        <button ion-button outline (click)="type = 'influencer'">Influencers</button>
+        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+          <ion-slides *ngSwitchCase="'influencer'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.mostRecent">
+              <ion-thumbnail>
+                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
+              </ion-thumbnail>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
         <button ion-button outline (click)="type = 'risingstars'">Rising Stars</button>
         <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
           <ion-slides *ngSwitchCase="'risingstars'" autoplay="2500" loop="true">
@@ -41,9 +52,9 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'film'">Film</button>
+        <button ion-button outline (click)="type = 'film'">Actors & Actresses</button>
         <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
-          <ion-slides *ngSwitchCase="'film'" autoplay="2500" loop="true">
+          <ion-slides *ngSwitchCase="'acting'" autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.mostRecent">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
