@@ -14,6 +14,7 @@ export class FeedPage {
   type: string;
   items: { text: string, system: string }[];
   allItems: { text: string, system: string }[];
+  image: string;
   search: string;
   public data;
 
