@@ -1,6 +1,6 @@
 {
   "name": "Superfan",
-  "app_id": "",
+  "app_id": "cb518e10",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
