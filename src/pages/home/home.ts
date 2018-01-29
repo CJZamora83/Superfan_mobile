@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Slides } from 'ionic-angular';
+import { NavController, Slides, Platform } from 'ionic-angular';
 import { Media } from '../../providers/media/media';
 import { GalleryPage } from '../gallery/gallery';
 import 'rxjs/add/operator/map';
@@ -17,11 +17,7 @@ export class HomePage {
   public type;
   public overlayHidden: boolean = true;
 
-  public hideOverlay(event) {
-    if (event.target.className === 'my-overlay') this.overlayHidden = true;
-  }
-
-  constructor(public navCtrl: NavController, public mediaService: Media) {
+  constructor(public navCtrl: NavController, public mediaService: Media, public plt: Platform) {
     var that = this;
     mediaService.getTrending();
     mediaService.getMostRecent();
@@ -29,11 +25,23 @@ export class HomePage {
     mediaService.getGramHome();
     mediaService.getTubeHome();
     that.type = "artists";
+
+    console.log('ios? ' + plt.is('ios'));
+    console.log('android? ' + plt.is('android'));
+    console.log('windows? ' + plt.is('windows'));
   }
 
   launchOverlay(obj){
     this.active = obj;
     this.overlayHidden = false;
+  }
+
+  hideOverlay(event) {
+    console.log(event.target.className)
+    if (event.target.className === 'my-overlay') {
+      this.active = false;
+      this.overlayHidden = true;
+    }
   }
 
   launchGallery(string){

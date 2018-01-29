@@ -88,9 +88,10 @@
     </ion-segment>
   </div>
 
-  <div class="my-overlay" padding [hidden]="overlayHidden" (click)="hideOverlay($event)">
+  <div class="my-overlay" padding *ngIf="!overlayHidden" (click)="hideOverlay($event)" style="position:fixed;width:100%;height:100%;top:0px;left:0px;background-color:rgba(0,0,0,.75);z-index:1000;">
     <ion-thumbnail *ngIf="active">
-      <img src="{{ active.thumbnail }}" style="z-index:5;position:absolute;top:25%;width:100%;left:0px;">
+      <img *ngIf="plt.is('windows')" class="image" src="{{ active.thumbnail }}" style="z-index:5;position:absolute;top:25%;width:100%;left:0px;">
+      <img *ngIf="!plt.is('windows')" class="image" src="{{ active.thumbnail }}" style="z-index:5;position:absolute;top:15%;width:100%;left:0px;">
     </ion-thumbnail>
   </div>
 
