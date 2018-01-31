@@ -1,3 +1,26 @@
 page-feed {
 
+  img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .card {
+    padding: 0;
+  }
+
+  .card-ios {
+    padding: 0;
+  }
+
+  .tweet-feed {
+  background-color: #00aced;
+  color: #ffffff;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: auto;
+  text-align: center;
+  }
+
 }

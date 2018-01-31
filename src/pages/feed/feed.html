@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 <!--   <ion-searchbar [(ngModel)]="search" (ionInput)="getItems($event)"></ion-searchbar>
  -->  <ion-list>
     <ion-item *ngFor="let item of feedService.favdisplay">
@@ -29,16 +29,17 @@
   </ion-list>
 
 
-  <div padding>
     <ion-list>
       <ion-grid fixed>
-          <ion-row *ngFor="let post of feedService.feed">
+          <ion-row *ngFor="let post of feedService.feed" style="margin:1px;">
             <ion-col col-12>
-              <img *ngIf="post.image" padding src="{{ post.image }}" (click)="launchGallery('feed')">
-              <div *ngIf="post.text" padding class="tweet-feed" (click)="launchGallery('feed')">
-                <h5>{{ post.username }}</h5>
-                <p>{{ post.text }}</p>
-              </div>
+              <ion-card>
+                <img *ngIf="post.image" src="{{ post.image }}" (click)="launchGallery('feed')">
+                <div *ngIf="post.text" padding class="tweet-feed" (click)="launchGallery('feed')">
+                  <h5>{{ post.username }}</h5>
+                  <p>{{ post.text }}</p>
+                </div>
+              </ion-card>
             </ion-col>
           </ion-row>
       </ion-grid>
@@ -46,5 +47,5 @@
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  </div>
+
 </ion-content>
