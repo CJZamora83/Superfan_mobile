@@ -31,13 +31,17 @@
 
     <ion-list>
       <ion-grid fixed>
-          <ion-row *ngFor="let post of feedService.feed" style="margin:1px;">
+          <ion-row *ngFor="let post of feedService.feed" style="margin-top:1px;margin-bottom:1px;">
             <ion-col col-12>
               <ion-card>
                 <img *ngIf="post.image" src="{{ post.image }}" (click)="launchGallery('feed')">
                 <div *ngIf="post.text" padding class="tweet-feed" (click)="launchGallery('feed')">
-                  <h5>{{ post.username }}</h5>
-                  <p>{{ post.text }}</p>
+                  <h3>{{ post.username }}</h3>
+                  <h5>{{ post.text }}</h5>
+                </div>
+                <div *ngIf="post.content" padding class="tmz-feed" (click)="launchGallery('feed')">
+                  <h3>{{ post.author }}</h3>
+                  <h5>{{ post.content }}</h5>
                 </div>
               </ion-card>
             </ion-col>
