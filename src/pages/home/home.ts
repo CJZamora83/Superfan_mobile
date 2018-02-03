@@ -24,7 +24,14 @@ export class HomePage {
     mediaService.getTwitterHome();
     mediaService.getGramHome();
     mediaService.getTubeHome();
-    that.type = "artists";
+    mediaService.getLabeled('music');
+    mediaService.getLabeled('athletics');
+    mediaService.getLabeled('influencer');
+    mediaService.getLabeled('risingstars');
+    mediaService.getLabeled('acting');
+    mediaService.getLabeled('politics');
+    mediaService.getLabeled('fitness');
+    that.type = "music";
 
     console.log('ios? ' + plt.is('ios'));
     console.log('android? ' + plt.is('android'));

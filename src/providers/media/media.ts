@@ -81,6 +81,48 @@ export class Media {
       views: number
     }[];
 
+    music: {
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
+    }[];
+
+    politics: {
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
+    }[];
+
+    acting: {
+      systemname: string,
+      username: string,
+      type: string,
+      link: string,
+      createdAt: string,
+      image: string,
+      video: string,
+      caption: string,
+      comments: number,
+      likes: number,
+      views: number
+    }[];
+
 
   constructor(public http: Http) { }
 
@@ -115,4 +157,11 @@ export class Media {
     });
   }
 
+  getLabeled(label) {
+    this.http.get('http://superfanlove.herokuapp.com/api/labeled?labels=' + label).map(res => res.json()).subscribe(data => {
+      this[label] = data;
+      console.log(label)
+      console.log(this);
+    });
+  }
 }

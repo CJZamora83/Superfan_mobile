@@ -8,10 +8,10 @@
   <div [ngSwitch]="type">
     <ion-segment [(ngModel)]="type">
       <ion-grid>
-        <button ion-button outline (click)="type = 'artists'">Artists</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
-          <ion-slides *ngSwitchCase="'artists'" autoplay="5000" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+        <button ion-button outline (click)="type = 'music'">Artists</button>
+        <div *ngIf="mediaService.music && mediaService.music.length > 0">
+          <ion-slides *ngSwitchCase="'music'" autoplay="5000" loop="true">
+            <ion-slide *ngFor="let post of mediaService.music">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
@@ -19,10 +19,10 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'athletes'">Athletes</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
-          <ion-slides *ngSwitchCase="'athletes'" autoplay="2500" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+        <button ion-button outline (click)="type = 'athletics'">Athletes</button>
+        <div *ngIf="mediaService.athletics && mediaService.athletics.length > 0">
+          <ion-slides *ngSwitchCase="'athletics'" autoplay="2500" loop="true">
+            <ion-slide *ngFor="let post of mediaService.athletics">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
@@ -31,9 +31,9 @@
         </div>
 
         <button ion-button outline (click)="type = 'influencer'">Influencers</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+        <div *ngIf="mediaService.influencer && mediaService.influencer.length > 0">
           <ion-slides *ngSwitchCase="'influencer'" autoplay="2500" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-slide *ngFor="let post of mediaService.influencer">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
@@ -42,9 +42,9 @@
         </div>
 
         <button ion-button outline (click)="type = 'risingstars'">Rising Stars</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+        <div *ngIf="mediaService.risingstars && mediaService.risingstars.length > 0">
           <ion-slides *ngSwitchCase="'risingstars'" autoplay="2500" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-slide *ngFor="let post of mediaService.risingstars">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
@@ -52,10 +52,10 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'film'">Actors & Actresses</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+        <button ion-button outline (click)="type = 'acting'">Actors & Actresses</button>
+        <div *ngIf="mediaService.acting && mediaService.acting.length > 0">
           <ion-slides *ngSwitchCase="'acting'" autoplay="2500" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-slide *ngFor="let post of mediaService.acting">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
@@ -64,9 +64,9 @@
         </div>
 
         <button ion-button outline (click)="type = 'politics'">Politics</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+        <div *ngIf="mediaService.politics && mediaService.politics.length > 0">
           <ion-slides *ngSwitchCase="'politics'" autoplay="2500" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-slide *ngFor="let post of mediaService.politics">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
@@ -75,9 +75,9 @@
         </div>
 
         <button ion-button outline (click)="type = 'fitness'">Fitness</button>
-        <div *ngIf="mediaService.mostRecent && mediaService.mostRecent.length > 0">
+        <div *ngIf="mediaService.fitness && mediaService.fitness.length > 0">
           <ion-slides *ngSwitchCase="'fitness'" autoplay="2500" loop="true">
-            <ion-slide *ngFor="let post of mediaService.mostRecent">
+            <ion-slide *ngFor="let post of mediaService.fitness">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
