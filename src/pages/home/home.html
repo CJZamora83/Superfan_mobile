@@ -4,24 +4,203 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <div [ngSwitch]="type">
-    <ion-segment [(ngModel)]="type">
-      <ion-grid>
-        <button ion-button outline (click)="type = 'music'">Artists</button>
-        <div *ngIf="mediaService.music && mediaService.music.length > 0">
-          <ion-slides *ngSwitchCase="'music'" autoplay="5000" loop="true">
-            <ion-slide *ngFor="let post of mediaService.music">
-              <ion-thumbnail>
-                <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
-              </ion-thumbnail>
-            </ion-slide>
-          </ion-slides>
-        </div>
 
-        <button ion-button outline (click)="type = 'athletics'">Athletes</button>
+
+<ion-content>
+
+<!-- Actors Cards -->
+
+  <h2 padding>Actors</h2>
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.acting">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+  <!-- Music Cards -->
+
+  <h2 padding>Music</h2>
+
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.music">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+<!-- Athletes cards -->
+
+  <h2 padding>Athletes</h2>
+
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.athletics">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+<!-- Rising Star Cards -->
+
+  <h2 padding>Rising Stars</h2>
+
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.risingstars">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+  <!-- Influencer Cards -->
+
+    <h2 padding>Influencer</h2>
+
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.influencer">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+
+<!-- Politics Cards -->
+
+  <h2 padding>Politics</h2>
+
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.politics">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+  <!-- Fitness Cards -->
+
+    <h2 padding>Fitness</h2>
+
+  <ion-scroll scrollX="true" direction="x">
+    <ion-card *ngFor="let post of mediaService.fitness">
+      <ion-card-content>
+        <ion-thumbnail>
+          <img style="height:240px;width:240px;" src="{{ post.thumbnail }}">
+        </ion-thumbnail>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+  <h5 padding center>
+    Stay Tuned For More Additions
+  </h5>
+</ion-content>
+
+
+
+<!-- <ion-content>
+  <ion-scroll scrollX="true" *ngFor="let post of mediaService.music">
+    <ion-card>
+      <ion-thumbnail>
+        <img src="{{ post.thumbnail }}">
+      </ion-thumbnail>
+    </ion-scroll>
+  </ion-content> -->
+
+<!--
         <div *ngIf="mediaService.athletics && mediaService.athletics.length > 0">
-          <ion-slides *ngSwitchCase="'athletics'" autoplay="2500" loop="true">
+          <ion-slides autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.athletics">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
@@ -30,9 +209,8 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'influencer'">Influencers</button>
         <div *ngIf="mediaService.influencer && mediaService.influencer.length > 0">
-          <ion-slides *ngSwitchCase="'influencer'" autoplay="2500" loop="true">
+          <ion-slides autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.influencer">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
@@ -41,9 +219,8 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'risingstars'">Rising Stars</button>
         <div *ngIf="mediaService.risingstars && mediaService.risingstars.length > 0">
-          <ion-slides *ngSwitchCase="'risingstars'" autoplay="2500" loop="true">
+          <ion-slides autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.risingstars">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
@@ -52,9 +229,8 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'acting'">Actors & Actresses</button>
         <div *ngIf="mediaService.acting && mediaService.acting.length > 0">
-          <ion-slides *ngSwitchCase="'acting'" autoplay="2500" loop="true">
+          <ion-slides autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.acting">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
@@ -63,9 +239,8 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'politics'">Politics</button>
         <div *ngIf="mediaService.politics && mediaService.politics.length > 0">
-          <ion-slides *ngSwitchCase="'politics'" autoplay="2500" loop="true">
+          <ion-slides autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.politics">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
@@ -74,25 +249,22 @@
           </ion-slides>
         </div>
 
-        <button ion-button outline (click)="type = 'fitness'">Fitness</button>
         <div *ngIf="mediaService.fitness && mediaService.fitness.length > 0">
-          <ion-slides *ngSwitchCase="'fitness'" autoplay="2500" loop="true">
+          <ion-slides autoplay="2500" loop="true">
             <ion-slide *ngFor="let post of mediaService.fitness">
               <ion-thumbnail>
                 <img src="{{ post.thumbnail }}" (click)="launchOverlay(post)" style="padding:1px;">
               </ion-thumbnail>
             </ion-slide>
           </ion-slides>
-        </div>
-      </ion-grid>
-    </ion-segment>
-  </div>
+        </div> -->
 
+
+<!--
   <div class="my-overlay" padding *ngIf="!overlayHidden" (click)="hideOverlay($event)" style="position:fixed;width:100%;height:100%;top:0px;left:0px;background-color:rgba(0,0,0,.75);z-index:1000;">
     <ion-thumbnail *ngIf="active">
       <img *ngIf="plt.is('windows')" class="image" src="{{ active.thumbnail }}" style="z-index:5;position:absolute;top:25%;width:100%;left:0px;">
       <img *ngIf="!plt.is('windows')" class="image" src="{{ active.thumbnail }}" style="z-index:5;position:absolute;top:15%;width:100%;left:0px;">
     </ion-thumbnail>
-  </div>
+  </div> -->
 
-</ion-content>
