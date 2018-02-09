@@ -10,29 +10,18 @@
 
 <!-- Actors Cards -->
 
-  <h2 padding>Actors</h2>
+  <h2 padding>Actors <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon></h2>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.acting">
       <ion-thumbnail>
         <img style="height:240px;width:140px;" src="{{ post.thumbnail }}">
       </ion-thumbnail>
     </ion-card>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title>
-          Nine Inch Nails Live
-          </ion-card-title>
-        <p>
-          The most popular industrial group ever, and largely
-          responsible for bringing the music to a mass audience.
-        </p>
-      </ion-card-content>
-    </ion-card>
   </ion-scroll>
 
   <!-- Music Cards -->
 
-  <h2 padding>Music</h2>
+  <h2 padding>Music <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></h2>
 
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.music">
@@ -40,15 +29,10 @@
         <img style="height:240px;width:140px;" src="{{ post.thumbnail }}">
       </ion-thumbnail>
     </ion-card>
-    <ion-card>
+    <ion-card padding-vertical>
       <ion-card-content>
-        <ion-card-title>
-          Nine Inch Nails Live
-          </ion-card-title>
-        <p>
-          The most popular industrial group ever, and largely
-          responsible for bringing the music to a mass audience.
-        </p>
+        <!-- Advanced: explicity set the icon for each platform -->
+        <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="zoom:6.0;"></ion-icon>
       </ion-card-content>
     </ion-card>
   </ion-scroll>
