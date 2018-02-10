@@ -1,7 +1,8 @@
 page-home {
 
-  ::-webkit-scrollbar{
-    display:none;
+  h2 {
+    margin-bottom: 0px;
+    margin-left: 3px;
   }
 
   .card {
@@ -23,9 +24,9 @@ page-home {
     padding: 0;
   }
 
-  .noMarge {
-    margin-top: 0;
-  }
+  // .noMarge {
+  //   margin-top: 0;
+  // }
 
   .scroll-zoom-wrapper {
           white-space: nowrap;
@@ -40,11 +41,16 @@ page-home {
       ion-scroll {
           min-height: 285px;
           height: auto;
+          margin-top: 0px;
 
               .scroll-content {
               padding: 0px !important;
           }
       }
+
+  ::-webkit-scrollbar{
+    display:none;
+  }
 
 
 }
