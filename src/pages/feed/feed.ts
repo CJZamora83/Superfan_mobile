@@ -19,13 +19,14 @@ export class FeedPage {
   public data;
 
   constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams, public feedService: FeedProvider) {
-    this.n = 0;
+    this.n = 50;
     this.type = 'mostRecent';
     this.initializeItems();
   };
 
   initializeItems() {
     this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
+      if (this.feedService.favorites.length > 0) this.feedService.getFeed(this.n, this.type);
       this.allItems = data;
     });
   };

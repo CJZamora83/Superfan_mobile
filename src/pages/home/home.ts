@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides, Platform } from 'ionic-angular';
 import { Media } from '../../providers/media/media';
+import { FeedProvider } from '../../providers/feed/feed';
 import { GalleryPage } from '../gallery/gallery';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -16,8 +18,11 @@ export class HomePage {
   public active;
   public type;
   public overlayHidden: boolean = true;
+  items: { text: string, system: string }[];
+  allItems: { text: string, system: string }[];
+  search: string;
 
-  constructor(public navCtrl: NavController, public mediaService: Media, public plt: Platform) {
+  constructor(public navCtrl: NavController, public mediaService: Media, public plt: Platform, public http: Http, public feedService: FeedProvider) {
     var that = this;
     mediaService.getTrending();
     mediaService.getMostRecent();
@@ -36,12 +41,28 @@ export class HomePage {
     console.log('ios? ' + plt.is('ios'));
     console.log('android? ' + plt.is('android'));
     console.log('windows? ' + plt.is('windows'));
+    this.initializeItems();
   }
 
   launchOverlay(obj){
     this.active = obj;
     this.overlayHidden = false;
   }
+
+  resetItems() {
+    this.items = this.allItems;
+  };
+
+  clear() {
+    this.feedService.clear();
+  };
+
+  addToFavs(celeb) {
+    this.feedService.toggleFavorite(celeb);
+    this.search = '';
+    this.items = [];
+    this.navCtrl.parent.select(1);
+  };
 
   hideOverlay(event) {
     console.log(event.target.className)
@@ -50,6 +71,29 @@ export class HomePage {
       this.overlayHidden = true;
     }
   }
+
+  initializeItems() {
+    this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
+      this.allItems = data;
+    });
+  };
+
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    this.resetItems();
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.text.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    } else {
+      this.items = [];
+    }
+  };
 
   launchGallery(string){
 
