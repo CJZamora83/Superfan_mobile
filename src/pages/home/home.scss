@@ -5,22 +5,30 @@ page-home {
     margin-left: 3px;
   }
 
+  ion-icon {
+    zoom: .75;
+  }
+
   .card {
     padding: 0;
     margin: 3px;
     border: 1px solid purple;
-    height: 240px;
+    height: 222px;
+    width: 222px;
   }
 
   .card-ios {
     padding: 0;
-    margin: 3x;
+    margin: 3px;
     border: 1px solid purple;
+    height: 222px;
+    width: 222px;
 
   }
   img {
-    width: 100%;
-    height: auto;
+    height: 220px;
+    width: 220px;
+    // height: auto;
     padding: 0;
   }
 
@@ -33,7 +41,8 @@ page-home {
       }
 
       .card {
-          width: 140px !important;
+          height: 222px;
+          width: 222px;
           display: inline-block;
       }
 

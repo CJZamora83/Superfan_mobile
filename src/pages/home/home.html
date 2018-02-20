@@ -10,11 +10,11 @@
 
 <!-- Actors Cards -->
 
-  <h2 style="color:#061161">Actors <ion-icon name="arrow-dropright-circle" style="color:#061161"></ion-icon></h2>
+  <h2 style="color:#061161">Actors <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="color:#061161"></ion-icon></h2>
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.acting">
       <ion-thumbnail>
-        <img style="height:240px;width:140px;" src="{{ post.thumbnail }}">
+        <img src="{{ post.thumbnail }}">
       </ion-thumbnail>
     </ion-card>
   </ion-scroll>
@@ -33,7 +33,7 @@
 
 <!-- Athletes cards -->
 
-  <h2 padding>Athletes</h2>
+  <h2 align-items-center style="color:#780206">Athletes <ion-icon isActive="false" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="color:#780206"></ion-icon></h2>
 
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.athletics">
@@ -45,7 +45,8 @@
 
 <!-- Rising Star Cards -->
 
-  <h2 padding>Rising Stars</h2>
+  <h2 align-items-center style="color:#780206">Rising Stars <ion-icon isActive="false" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="color:#780206"></ion-icon></h2>
+
 
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.risingstars">
@@ -57,7 +58,8 @@
 
   <!-- Influencer Cards -->
 
-    <h2 padding>Influencer</h2>
+  <h2 align-items-center style="color:#780206">Influencers <ion-icon isActive="false" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="color:#780206"></ion-icon></h2>
+
 
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.influencer">
@@ -70,7 +72,7 @@
 
 <!-- Politics Cards -->
 
-  <h2 padding>Politics</h2>
+  <h2 align-items-center style="color:#780206">Politics <ion-icon isActive="false" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="color:#780206"></ion-icon></h2>
 
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.politics">
@@ -82,7 +84,7 @@
 
   <!-- Fitness Cards -->
 
-    <h2 padding>Fitness</h2>
+  <h2 align-items-center style="color:#780206">Fitness <ion-icon isActive="false" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle" style="color:#780206"></ion-icon></h2>
 
   <ion-scroll scrollX="true" direction="x">
     <ion-card *ngFor="let post of mediaService.fitness">
