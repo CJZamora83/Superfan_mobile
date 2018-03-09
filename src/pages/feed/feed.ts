@@ -17,12 +17,16 @@ export class FeedPage {
   image: string;
   search: string;
   public data;
+  public searchFocused;
 
   constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams, public feedService: FeedProvider) {
     this.n = 50;
     this.type = 'mostRecent';
+    this.searchFocused = false;
+    this.items = [];
     this.initializeItems();
   };
+
 
   initializeItems() {
     this.http.get('http://superfanlove.herokuapp.com/api/celebrities/tags?query=').map(res => res.json()).subscribe(data => {
@@ -90,5 +94,13 @@ export class FeedPage {
       data: this.data
     });
   };
+
+  checkFocus(){
+    this.searchFocused = true;
+  }
+
+  checkBlur() {
+    this.searchFocused = false;
+  }
 
 }

@@ -62,6 +62,9 @@ export class FeedProvider {
       this.favorites.push(obj.system);
       this.favdisplay.push(obj);
     }
+    console.log(obj);
+    console.log(this.favorites);
+    console.log(this.favdisplay);
   };
 
   clear() {
