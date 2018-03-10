@@ -18,11 +18,13 @@ export class FeedPage {
   search: string;
   public data;
   public searchFocused;
+  public czechMark;
 
   constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams, public feedService: FeedProvider) {
     this.n = 50;
     this.type = 'mostRecent';
     this.searchFocused = false;
+    this.czechMark = false;
     this.items = [];
     this.initializeItems();
   };
@@ -50,6 +52,7 @@ export class FeedPage {
       this.items = [];
       this.feedService.getFeed(this.n, this.type);
     }
+      this.czechMark = true;
   };
 
   getItems(ev: any) {
